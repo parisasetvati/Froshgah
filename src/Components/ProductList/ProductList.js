@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 import Product from "../Product/Product";
-const ProductList = ({ onCrement,ondecrement,onDelete ,products}) => {
+import { ProductData } from "../db/ProductData";
+import {useProducts,useProductsAction} from '../Provider/Provider';
+import Provider from "../Provider/Provider";
+import { useContext } from "react";
+const ProductList = () => {
  
-  
+  const products = useProducts();
+
+  const dispatch= useProductsAction();
+
   return (
     <div>
     
-      {products.map((p) => {
+      { products.map((p) => {
         return (
           <Product
           
           products={p}
-            onCrement={()=>{onCrement(p.id)}}
-            ondecrement={()=>ondecrement(p.id)}
-            onDelete={()=>onDelete(p.id)}
+            onCrement={()=>dispatch({type:"crement",id:(p.id)})}
+            ondecrement={()=>dispatch({type:"decrement",id:(p.id)})}
+            onDelete={()=>dispatch({type:"delete",id:(p.id)})}
           />
         );
       })}
