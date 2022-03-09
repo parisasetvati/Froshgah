@@ -35,7 +35,11 @@ const Filter = () => {
     <div className={styles.container}>
       <div className={styles.select}>
         <div>
+        <SearchBar filter={filter} />
+        </div>
        {/* <label className={styles.label}></label> */}
+       <div className={styles.selects}>
+       <div>
           <SelectComponent
           title="filter by Size:"
             value={filter}
@@ -43,7 +47,7 @@ const Filter = () => {
             options={filterOptions}
           />
         </div>
-        <SearchBar filter={filter} />
+      
         <div>
           {/* <label className={styles.label}>Sort by Price:</label> */}
           <SelectComponent
@@ -51,6 +55,7 @@ const Filter = () => {
           value={sort} 
           onChange={sortHandler} 
           options={sortOptions} />
+          </div>
         </div>
       </div>
     </div>
