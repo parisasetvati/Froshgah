@@ -1,9 +1,8 @@
 import styles from "./Filter.module.css";
 import React, { useState } from "react";
 import SelectComponent from "../../common/Select";
-import Select from "react-select";
-import { useProducts, useProductsAction } from "../Provider/Provider";
-import SearchBar from "../SearchBar/SearchBar";
+import { useProductsAction } from "../Provider/Provider";
+import SearchBar from "../../common/SearchBar";
 const filterOptions = [
   { value: "", label: "All" },
   { value: "S", label: "S" },
@@ -35,26 +34,25 @@ const Filter = () => {
     <div className={styles.container}>
       <div className={styles.select}>
         <div>
-        <SearchBar filter={filter} />
+          <SearchBar filter={filter} />
         </div>
-       {/* <label className={styles.label}></label> */}
-       <div className={styles.selects}>
-       <div>
-          <SelectComponent
-          title="filter by Size:"
-            value={filter}
-            onChange={filterChange}
-            options={filterOptions}
-          />
-        </div>
-      
-        <div>
-          {/* <label className={styles.label}>Sort by Price:</label> */}
-          <SelectComponent
-           title="Sort by Price:"
-          value={sort} 
-          onChange={sortHandler} 
-          options={sortOptions} />
+        <div className={styles.selects}>
+          <div>
+            <SelectComponent
+              title="filter by Size:"
+              value={filter}
+              onChange={filterChange}
+              options={filterOptions}
+            />
+          </div>
+
+          <div>
+            <SelectComponent
+              title="Sort by Price:"
+              value={sort}
+              onChange={sortHandler}
+              options={sortOptions}
+            />
           </div>
         </div>
       </div>

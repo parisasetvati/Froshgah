@@ -1,19 +1,8 @@
 import styles from "./Product.module.css";
 import React, { FaRegTrashAlt } from "react-icons/fa";
-
-
-
-import ProductList from "../ProductList/ProductList";
-import { useContext } from "react";
-import {productContext ,ProductContextDispatcher}  from '../Provider/Provider'
-
 const Product = ({ products, onCrement, ondecrement, onDelete }) => {
   return (
-    
-      
     <div className={styles.container}>
-     
-
       <div className={styles.product}>
         <p>ProuctName:{products.title}</p>
         <p>Price:{products.price}</p>
@@ -21,7 +10,6 @@ const Product = ({ products, onCrement, ondecrement, onDelete }) => {
           Quantity:
           <span>{products.quantity}</span>
         </p>
-        
       </div>
       <div className={styles.btncontainer}>
         <button className={styles.btn} onClick={onCrement}>
@@ -40,7 +28,6 @@ const Product = ({ products, onCrement, ondecrement, onDelete }) => {
         </button>
       </div>
     </div>
-    
   );
 };
 

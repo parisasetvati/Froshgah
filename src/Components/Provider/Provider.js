@@ -1,6 +1,6 @@
 import React, { useContext, useReducer } from "react";
 import { ProductData } from "../db/ProductData";
-import _ from 'lodash';
+import _ from "lodash";
 const productContext = React.createContext();
 const ProductContextDispatcher = React.createContext();
 
@@ -34,42 +34,37 @@ const reducer = (state, action) => {
     case "filter": {
       const value = action.selectItem.value;
       console.log(value);
-      if (value === '') {
+      if (value === "") {
         return ProductData;
       } else {
-        const filterItem = ProductData.filter((p) => 
-          p.size.indexOf(value) >= 0)
-          return filterItem;
-        
-        
+        const filterItem = ProductData.filter(
+          (p) => p.size.indexOf(value) >= 0
+        );
+        return filterItem;
       }
     }
-    case "sort":{
-   const value=action.selectItem.value;
-      if(value==="lowest"){
-        let sortItem  = _.orderBy(state, ['price'],['asc']);
+    case "sort": {
+      const value = action.selectItem.value;
+      if (value === "lowest") {
+        let sortItem = _.orderBy(state, ["price"], ["asc"]);
+        return sortItem;
+      } else {
+        let sortItem = _.orderBy(state, ["price"], ["desc"]);
         return sortItem;
       }
-      else{
-        let sortItem  = _.orderBy(state, ['price'],['desc']);;
-        return sortItem;
-      }
-
     }
-    case "search":{
-    const value=action.event.target.value;
-if (value===""){
-return state;
-}
-else{
-  const searchItem=state.filter((p)=>p.title.toLowerCase().includes(value.toLowerCase()))
-    return searchItem;
-
-
-}
+    case "search": {
+      const value = action.event.target.value;
+      if (value === "") {
+        return state;
+      } else {
+        const searchItem = state.filter((p) =>
+          p.title.toLowerCase().includes(value.toLowerCase())
+        );
+        return searchItem;
+      }
     }
   }
-  
 };
 const Provider = ({ children }) => {
   const [products, dispatch] = useReducer(reducer, ProductData);
