@@ -1,0 +1,22 @@
+@media (max-width: 767px) {
+    .select{flex-direction:column !important;
+        
+   }
+}
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+
+    
+}
+.select{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+

@@ -1,0 +1,15 @@
+.search{
+    display: flex;
+    flex-direction: column;
+
+}
+input{
+    padding: 7px 5px;
+    margin-left: 7px;
+    margin-top: 8px;
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+
+}
